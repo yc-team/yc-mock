@@ -1,5 +1,9 @@
 {
     "type": "object",
+    "default": {
+        "test": 111,
+        "test2": 222
+    },
     "properties": {
         "test" : {
             "type": "string",
