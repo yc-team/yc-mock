@@ -77,7 +77,7 @@ function handleMock (schema) {
     //enum
     if (schema['enum']) {
         var len = schema['enum'].length;
-        return schema['enum'][random.integer(0, l-1)];
+        return schema['enum'][word.integer(0, len-1)];
     }
 
     //array

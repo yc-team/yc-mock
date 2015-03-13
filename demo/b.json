@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "enum": [
+        {
+            "test": 111,
+            "test2": 222
+        },
+        {
+            "test": 333,
+            "test2": 444
+        }
+    ],
+    "properties": {
+        "test" : {
+            "type": "string",
+            "minLength": "2",
+            "maxLength": "5"
+        },
+        "test2" : {
+            "type": "string",
+            "minLength": "1",
+            "maxLength": "10"
+        }
+    }
+}
