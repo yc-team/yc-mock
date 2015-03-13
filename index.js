@@ -86,16 +86,13 @@ function handleMock (schema) {
 
         var min = schema['minItems'] || 0;
         var max = schema['maxItems'] || 1;
-        var randomInteger = random.integer(min, max);
+        var randomInteger = word.integer(min, max);
 
-        for (var i = 0; i < randomInteger.length; i++) {
-            if (schema['items']['type'] == 'object' || schema['items']['type'] == 'array') {
-                //TODO
-                result.push(arguments.callee(schema['items']));
-            } else {
-                //items
-                result.push(handleBasicMock(schema['items']));
-            }
+        for (var i = 0; i < randomInteger; i++) {
+            var sItem = schema['items'][i];
+            var stype = sItem['type'];
+            
+            result.push(arguments.callee(sItem));
         };
 
     }
@@ -115,6 +112,12 @@ function handleMock (schema) {
             }
 
         }
+    }
+
+    //string
+    //TODO 概率比较低，目前基本都是object类型的，单个string的基本很少
+    if (type == 'string') {
+        result = handleBasicMock(schema);
     }
 
     return result;
